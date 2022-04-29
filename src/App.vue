@@ -7,10 +7,10 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
-   <!-- <div id="app"> -->
-    <!-- <h1>hello luozhuohua@fcbox.com</h1> -->
-   <!-- </div> -->
-    <router-view/>
+  <!-- <div id="app"> -->
+  <!-- <h1>hello luozhuohua@fcbox.com</h1> -->
+  <!-- </div> -->
+  <router-view />
 </template>
 
 <style>
