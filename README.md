@@ -46,7 +46,7 @@ husky 操作步骤：
   ![](image/README/1651230583536.png)
 
 - 方法二：
-  1.npm i -D husky @commitlint/config-conventional
+  1.npm i -D husky@4.3.8 @commitlint/config-conventional commitlint
 
   ```
   // commitlint.config.js规范
@@ -62,9 +62,20 @@ husky 操作步骤：
   test：新增测试用例或是更新现有测试
   revert：回滚某个更早之前的提交
   chore：不属于以上类型的其他类型
+
+  module.exports = {
+    extends: ['@commitlint/config-conventional']
+  };
   ```
 
-  2.
+  2.package.json
+  ```
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  }
+  ```
 
 ### stylelintrc.js 配置
 
