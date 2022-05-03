@@ -44,7 +44,6 @@ husky 操作步骤：
   2.npx husky install // 创建 husky 目录，并初始化
   3.npx husky add .husky/pre-commit 'npm run lint' // 创建 pre-commit，并执行 package.js 里面的 npm run lint
   ![](image/README/1651230583536.png)
-
 - 方法二：
   1.npm i -D husky@4.3.8 @commitlint/config-conventional commitlint
 
@@ -69,6 +68,7 @@ husky 操作步骤：
   ```
 
   2.package.json
+
   ```
   "husky": {
     "hooks": {
@@ -134,8 +134,6 @@ module.exports = {
 ```
 
 - eslint Vue3 一直报错 error: Parsing error: Unexpected token 解决方法(在 vue3 ts 中的解决办法)
-  ![](image/项目试错/1651216293068.png)
-  ![](image/项目试错.md/1651215176.jpg)
 
   1.安装依赖 eslint-plugin-vue @typescript-eslint/parser @typescript-eslint/eslint-plugin
   2.eslintrc.js 文件中的配置
@@ -149,7 +147,6 @@ module.exports = {
     extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   }
   ```
-
 - vite2 添加类似 webpack-bundle-analyzer 依赖分析插件
 
 ```
