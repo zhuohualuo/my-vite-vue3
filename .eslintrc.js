@@ -21,13 +21,14 @@ module.exports = {
     'prefer-arrow-callback': 0,
     'vue/multi-word-component-names': 0, // 不规定了组件的名称格式 解决报错Component name “xxx“ should always be multi-word vue/multi-word-component-names
     '@typescript-eslint/no-non-null-assertion': 0,
+    semi: 0,
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
         argsIgnorePattern: '^_', // 指定排除不需要检测 例如，下划线开头的变量。
         varsIgnorePattern: '^_' // 指定了不需要检测的异常：变量名称匹配正则模式。例如，变量的名字包含 ignored 或者 Ignored。
       }
-    ],
+    ]
   },
   plugins: ['prettier'], // 启用插件prettier
   overrides: [
