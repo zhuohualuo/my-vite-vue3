@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
     "start": "ts-node-dev --respawn ./server/app.ts",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "typecheck": "vue-tsc --noEmit",
     "report": "set report=true&& vite build",
