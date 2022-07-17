@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      # - run: npm ci --ignore-scripts
+      - run: npm i
       - run: npm run build
         env:
           GH_TOKEN: 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
