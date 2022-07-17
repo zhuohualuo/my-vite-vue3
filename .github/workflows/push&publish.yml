@@ -24,8 +24,8 @@ jobs:
           npm run build
       - name: npm publish private
         run: |
-          npm config set //registry.npmjs.org/:_authToken=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
+          npm config set //registry.npmjs.org/:_authToken=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
           npm publish
         env:
           CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.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 }}
+          NODE_AUTH_TOKEN: ${{ secrets.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 }}
