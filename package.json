@@ -1,6 +1,6 @@
 {
   "name": "my-vite-vue3",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "publishConfig": {
     "access": "public"
@@ -18,8 +18,7 @@
     "lint-fix": "npm run eslint -- --fix && npm run stylelint -- --fix",
     "prepare": "husky install",
     "commit:comment": "引导设置规范化的提交信息",
-    "commit": "git-cz",
-    "private": "false"
+    "commit": "git-cz"
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
