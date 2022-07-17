@@ -18,7 +18,8 @@
     "lint-fix": "npm run eslint -- --fix && npm run stylelint -- --fix",
     "prepare": "husky install",
     "commit:comment": "引导设置规范化的提交信息",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "private": "false"
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
