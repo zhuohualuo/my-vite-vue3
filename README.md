@@ -291,3 +291,8 @@ git clone -b 分支名 --depth=1 仓库路径
 ```
 ssh-keygen -R 106.13.4.108
 ```
+
+### gitaction
+
+自动化 ci/cl，通过 yml 配置
+并发布 pubish，需要先在 npm 仓库上传
