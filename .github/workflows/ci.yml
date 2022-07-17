@@ -18,6 +18,7 @@ jobs:
       - run: npm i
       - run: npm run prepare
       - run: npm run build
+      - run: npm publish
         env:
           GH_TOKEN: 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
           NPM_TOKEN: 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
