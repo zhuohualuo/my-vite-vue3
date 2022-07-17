@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+    "useDefineForClassFields": true, // 通过一些新的检查逻辑来减少bug，一般是初始化undefined
+    "module": "commonjs", // 指定输出目录: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    // "outDir": "./dist", // 指定输出目录, 默认是dist文件夹
+    // "rootDir": "./", // 编译文件根目录
+    "moduleResolution": "node", // 用于选择模块解析策略，有'node'和'classic'两种类型
+    "strict": true, // 严格模式将会打开下面的几个选项
+    "jsx": "preserve", //在JSX不变的情况下发出.jsx文件,指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    "sourceMap": true, // 源码  用来指定编译时是否生成.map文件
+    "resolveJsonModule": true, // 允许导入带有.json扩展名的模块
+    "isolatedModules": true, // 充当保护措施。 tsc 做类型检查时，当监测到 isolatedModules 是开启的，就会报类型错误。 如果错误未解决，将影响独立处理文件的编译工具（babel）。
+    "esModuleInterop": true, // 通过为导入内容创建命名空间，实现CommonJS和ES模块之间的互操作性
+    // types用来指定需要包含的模块，只有在这里列出的模块的声明文件才会被加载进来
+    "types": ["element-plus/global", "unplugin-icons/types/vue"],
+    /* 注意：如果未指定--lib，则会注入默认的librares列表。注入的默认库为：
+       对于 --target ES5: DOM,ES5,ScriptHost
+       对于 --target ES6: DOM,ES6,DOM.Iterable,ScriptHost
+       TS 绝不会在您的代码中注入polyfill,所以需要你自己制定编译lib */
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true, // tsc 在编译的时候忽略js文件
+    /* 防止vue文件导入文件报错，要设置模块的基本目录和名称 */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  // 指定需要编译文件
+  // "files": ["server/app.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", "public"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
