@@ -29,7 +29,7 @@
 import { useStore } from 'vuex';
 import { useUserStore } from '@/storePinia/user';
 import { ElMessage } from 'element-plus';
-
+import type { FormInstance, FormRules } from 'element-plus';
 import service from '@/utils/http';
 import { useMouse } from '@vueuse/core';
 

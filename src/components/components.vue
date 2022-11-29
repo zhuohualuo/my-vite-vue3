@@ -44,6 +44,9 @@
     <h1>el-link</h1>
     <el-link type="success" @click="handleLink"> handleLink </el-link>
     <el-button type="success" @click="handleButton"> handleButton </el-button>
+
+    <p>====================</p>
+    <h1>el-input</h1>
   </div>
 </template>
 
@@ -54,6 +57,45 @@ import { ElMessage } from 'element-plus';
 import type { FormInstance, FormRules } from 'element-plus';
 
 import XLSX from 'xlsx';
+
+const res = {
+  msg: '处理成功',
+  code: '0',
+  data: {
+    1: [
+      {
+        boxLine: 1,
+        boxColumn: 1,
+        deviceUid: '123987_71950',
+        deviceNo: '123987',
+        boxCode: '1-1'
+      }
+    ],
+    2: [
+      {
+        deleteFlag: 0,
+        boxLine: 2,
+        boxColumn: 2,
+        deviceUid: '123987_71950',
+        deviceNo: '123987',
+        boxCode: '2-1'
+      }
+    ]
+  }
+};
+const getPostParams = () => {
+  return gridCabinetList.map((gridCabinet, index) => {
+    const data = {
+      containerCode: String.fromCharCode(index + 65),
+      cellRow: gridCabinet.table.length,
+      cellCol: gridCabinet.table[0].length,
+      cellLength: gridCabinet.cellLength,
+      cellWidth: gridCabinet.cellWidth,
+      cellHeight: gridCabinet.cellHeight
+    };
+    console.log('data=====', data);
+  });
+};
 
 const formRef: FormInstance = ref();
 console.log('formRef==', formRef);
@@ -109,11 +151,104 @@ const dialogClick = () => {
   state.dialogVisible = true;
 };
 
-const state: Record<string, any> = reactive({
-  fileList: [],
-  dialogVisible: false
+const gridCabinetList = reactive([
+  {
+    cellLength: undefined,
+    cellWidth: undefined,
+    cellHeight: undefined,
+    table: [
+      [
+        {
+          boxLine: 1,
+          boxColumn: 1,
+          boxCode: 1
+        }
+      ]
+    ]
+  }
+]);
+
+const table = reactive([
+  {
+    boxLine: 1,
+    boxColumn: 1,
+    boxCode: 1,
+    '01': '123'
+  }
+]);
+const tableProps = reactive([
+  {
+    prop: '01'
+  }
+]);
+
+const pageParams = reactive({
+  type: 'add',
+  index: 0
 });
 
+const state: Record<string, any> = reactive({
+  fileList: [],
+  dialogVisible: false,
+  boxList: [
+    {
+      boxLine: 1,
+      boxColumn: 1,
+      boxCode: ''
+    }
+  ]
+});
+
+const formatIndex = (index) => {
+  return Number(index) < 10 ? '0' + index : index + '';
+};
+const handelChange = (type, action) => {
+  const handelArray = [];
+  const propsLength = tableProps.length;
+  // handelArray = gridCabinetList[gridCabinetIndex].table;
+  const len = gridCabinetList.length;
+  // if (type === 'row') {
+  //   handelArray = gridCabinetList[gridCabinetIndex].table;
+  // } else {
+  //   handelArray = gridCabinetList[gridCabinetIndex].table[0];
+  // }
+  const handelMap = {
+    add: {
+      limit: 10,
+      msg: '最多添加',
+      row: () => {
+        table.push({});
+      },
+      col: () => {
+        tableProps.push({
+          prop: formatIndex(tableProps.length)
+        });
+      }
+    },
+    delete: {
+      limit: 1,
+      msg: '最少保留',
+      row: () => {
+        handelArray.pop();
+      },
+      col: () => {
+        handelArray.pop();
+      }
+    }
+  };
+  if (handelArray.length === handelMap[action].limit) {
+    // this.$message.error(handelMap[action].msg + handelMap[action].limit + (type === 'row' ? '行' : '列'));
+    alert(123);
+  } else {
+    handelMap[action][type]();
+  }
+  if (type === 'col') {
+    // this.$nextTick(() => {
+    //   // 重新渲染表格，消除抖动
+    //   this.$refs['table' + gridCabinetIndex][0].doLayout();
+    // });
+  }
+};
 const testHandle = () => {
   try {
     throw Error(123);
@@ -178,3 +313,12 @@ const downTemplate = () => {
   xhr.send();
 };
 </script>
+
+<style scoped>
+.table-append-action {
+  width: 149px;
+  text-align: center;
+  padding: 8px 0;
+  border-right: solid 1px rgb(235, 238, 245);
+}
+</style>

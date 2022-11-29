@@ -295,4 +295,8 @@ ssh-keygen -R 106.13.4.108
 ### gitaction
 
 自动化 ci/cl，通过 yml 配置
-并发布 pubish，需要先在 npm 仓库上传
+并发布 publish，需要先在 npm 仓库上传
+
+action publish 不成功，
+![1658031364631](image/README/1658031364631.png)
+要设置成公共，但是设置成公共后，npm的token就会发邮件说失效了

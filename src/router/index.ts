@@ -20,6 +20,21 @@ const routes: Array<RouteRecordRaw> = [
     path: '/components',
     name: 'components',
     component: () => import('@/components/components.vue')
+  },
+  {
+    path: '/hello',
+    name: 'hello',
+    component: () => import('@/components/HelloWorld.vue')
+  },
+  {
+    path: '/props',
+    name: 'props',
+    component: () => import('@/views/propstest/father/index.vue')
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: () => import('@/components/form/index.vue')
   }
 ];
 
