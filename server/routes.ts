@@ -8,6 +8,7 @@ const router = new Router();
 
 // test
 router.get('/test', (ctx) => (ctx.body = 'ListUsers controller'));
+router.get('/test2', (ctx) => (ctx.body = 'ListUsers controller222222'));
 // auth 相关的路由
 router.post('/auth/login', AuthController.login);
 router.post('/auth/register', AuthController.register);

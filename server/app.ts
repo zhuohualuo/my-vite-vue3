@@ -19,6 +19,10 @@ app.use(bodyParser());
 // });
 app.use(router.routes()).use(router.allowedMethods());
 
+app.use(async (ctx) => {
+  ctx.body = 'Hello World';
+});
+
 app.listen(3000, () => {
   console.log('服务启动成功，running http://127.0.0.1:3000');
 });
