@@ -13,6 +13,7 @@ import { useRouter } from 'vue-router';
 export default defineComponent({
   setup() {
     const router = useRouter();
+    console.log('router');
 
     function handle() {
       console.log('object');
@@ -24,8 +25,8 @@ export default defineComponent({
 
     return {
       handle,
-      handleComponents
+      handleComponents,
     };
-  }
+  },
 });
 </script>
